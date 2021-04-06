@@ -20,7 +20,7 @@ public class AppApplication {
         SpringApplication.run(AppApplication.class, args);
     }
 
-    // Needed to get Access Token to get user roles
+    // Inject AccessToken via @Bean from external dependency and register in ApplicationContext
     @Bean
     @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
     public AccessToken getAccessToken() {
