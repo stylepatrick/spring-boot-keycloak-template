@@ -2,14 +2,14 @@ package com.app.resource.api;
 
 import com.app.user.User;
 import com.app.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @ApiRestController
+@AllArgsConstructor
 public class UserResource {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
     @GetMapping("user")
     public User getUser() {

@@ -2,7 +2,7 @@ package com.app.resource.api;
 
 import com.app.entity.App;
 import com.app.service.AppService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @ApiRestController
+@AllArgsConstructor
 public class AppResource {
 
-    @Autowired
-    AppService appService;
+    private final AppService appService;
 
     @GetMapping(value = "properties")
     public AppProperties properties() {

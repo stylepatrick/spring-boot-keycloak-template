@@ -1,14 +1,14 @@
 package com.app.resource.setup;
 
 import com.app.AppConfig;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @SetupRestController
+@AllArgsConstructor
 public class KeycloakResource {
 
-    @Autowired
-    AppConfig app;
+    private final AppConfig app;
 
     @GetMapping("/keycloak")
     public KeycloakConfig getConfig() {

@@ -4,6 +4,7 @@ import com.app.AppConfig;
 import com.app.entity.App;
 import com.app.repositroy.AppRepository;
 import com.app.resource.api.AppProperties;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,13 +12,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class AppService {
 
-    @Autowired
-    AppConfig appConfig;
-
-    @Autowired
-    AppRepository appRepository;
+    private final AppConfig appConfig;
+    private final AppRepository appRepository;
 
     public AppProperties getAppProperties() {
         return new AppProperties(

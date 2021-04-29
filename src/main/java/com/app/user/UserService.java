@@ -1,17 +1,17 @@
 package com.app.user;
 
+import lombok.AllArgsConstructor;
 import org.keycloak.representations.AccessToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class UserService {
 
-    @Autowired
-    AccessToken accessToken;
+    private final AccessToken accessToken;
 
     public User getCurrentUser() {
         List<String> roles = accessToken.getRealmAccess().getRoles().stream()
